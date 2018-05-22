@@ -1,0 +1,57 @@
+% To je predloga za poročila o domačih nalogah pri predmetih, katerih
+% nosilec je Blaž Zupan. Seveda lahko tudi dodaš kakšen nov, zanimiv
+% in uporaben element, ki ga v tej predlogi (še) ni. Več o LaTeX-u izveš na
+% spletu, na primer na http://tobi.oetiker.ch/lshort/lshort.pdf.
+%
+% To predlogo lahko spremeniš v PDF dokument s pomočjo programa
+% pdflatex, ki je del standardne instalacije LaTeX programov.
+
+\documentclass[a4paper,11pt]{article}
+\usepackage{a4wide}
+\usepackage{fullpage}
+\usepackage[utf8x]{inputenc}
+\usepackage[slovene]{babel}
+\selectlanguage{slovene}
+\usepackage[toc,page]{appendix}
+\usepackage[pdftex]{graphicx} % za slike
+\usepackage{setspace}
+\usepackage{color}
+\definecolor{light-gray}{gray}{0.95}
+\usepackage{listings} % za vključevanje kode
+\usepackage{hyperref}
+\renewcommand{\baselinestretch}{1.2} % za boljšo berljivost večji razmak
+\renewcommand{\appendixpagename}{Priloge}
+
+\lstset{ % nastavitve za izpis kode, sem lahko tudi kaj dodaš/spremeniš
+language=Python,
+basicstyle=\footnotesize,
+basicstyle=\ttfamily\footnotesize\setstretch{1},
+backgroundcolor=\color{light-gray},
+}
+
+\title{3. domača naloga: razvrščanje v skupine}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Uvod}
+
+Podatki, ki jih dobimo na vhodu so podani s 61637 primeri, ki so opisani z 25133 atributi. Naša naloga je bila, da te podatke razvrstimo v skupine, pri čemer mora biti kvaliteta razvrstitve ocenjena z uporabi popravljeni indeks po Randu (ARI), vsaj 0,29. Največji izziv naloge je delati z velikimi podatki.
+
+\section{Metoda}
+
+Naloge sem se lotil tako, da sem najprej z \textit{mmread()} prebral podatke iz datoteke, nato pa sem matriko prepisal tako, da sem ohranil samo prvih 2500 atributov, saj je tam matrika najbolj gosta. Podatke sem tudi binariziral, torej vse vrednosti, ki so bile večje od nič sem nastavil na ena. S tem sem dosegel, hitrejše delovanje K-means in boljše rezultate. Za razvrščanje v skupino sem uporabil metodo K-means, katerim sem nastavil število gruč na 45, kar se je izkazalo za najbolj optimalno. Inicializacijsko metodo sem pustil na privzeti vrednosti, \textit{k-means++}, saj ta veliko hitreje konvergira, kot če bi začetne centre izbirali naključno.
+Rezultat, ki sem ga uspel dobiti s to metodo je ARI=0,21
+
+
+\section{Konsenzno razvrščanje}
+
+Konsenznega razvrščanja nisem implementiral.
+
+\section{Izjava o izdelavi domače naloge}
+Domačo nalogo in pripadajoče programe sem izdelal sam.
+
+
+\end{document}

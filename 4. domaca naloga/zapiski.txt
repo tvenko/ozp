@@ -1,0 +1,13 @@
+matriko utezi sploscis in zlepis skupaj za vse nivoje
+
+lbfgs nato prejme ta vektor
+lbfgs klice 2. moje funkcije, cost in gradient
+
+predict za x poklice forward pass, predpostavu bo da ze imas zracunane koificientr in napovedal najbolj verejten razred ->
+vraca kar aktivacije kar zadnjega nivoja
+
+grad_aprox ->
+
+10^-5 zamejes da fino dela
+
+5*5  6*3 + 4*3 = 55 od tod stevilo utezi
